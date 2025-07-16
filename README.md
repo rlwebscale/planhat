@@ -13,7 +13,7 @@ To use this collection, you will need to import both the collection and the envi
 ### Installation
 1.  **Clone the Repository:**
     ```sh
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+    git clone [https://github.com/rlwebscale/planhat.git]([https://github.com/rlwebscale/planhat.git)
     ```
 2.  **Import to Postman:**
     * Open Postman and click **File > Import...**.
