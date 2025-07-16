@@ -1,0 +1,4948 @@
+{
+	"info": {
+		"_postman_id": "PLANHAT-API-COLLECTION-V2",
+		"name": "Planhat API (Complete & Sorted)",
+		"description": "A comprehensive and alphabetically sorted Postman collection for the Planhat API, generated from user-provided documentation.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Asset",
+			"item": [
+				{
+					"name": "Create Asset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Asset name\",\n    \"companyId\": \"60df26bfa259250cba9cf816\",\n    \"externalId\": 1234,\n    \"sourceId\": \"sfc-1234\",\n    \"custom\": {\n        \"field\": \"custom field\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/assets",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"assets"
+							]
+						},
+						"description": "To create an asset it's required define a name and a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Asset",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Asset name 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/assets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"assets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To update an asset it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the asset externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/assets/extid-{{externalId}}\nor\nhttps://api.planhat.com/assets/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Asset by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/assets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"assets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5ffcce42ad67267f66741147"
+								}
+							]
+						},
+						"description": "To get a specific asset it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get an asset using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/assets/extid-{{externalId}}\nor\nhttps://api.planhat.com/assets/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assets List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/assets?limit=100&offset=0&sort=&select=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"assets"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": "",
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple assets there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Asset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/assets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"assets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To delete an asset it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Assets",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Asset name\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"externalId\": 1234,\n        \"sourceId\": \"sfc-1234\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    },\n    {\n        \"name\": \"Asset name 2\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"externalId\": 1235,\n        \"sourceId\": \"sfc-1235\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/assets",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"assets"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple assets with the same payload. There is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Campaign",
+			"item": [
+				{
+					"name": "Create Campaign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Campaign name\",\n    \"campaignPurpose\": \"Campaign purpose\",\n    \"companyId\": \"60df26bfa259250cba9cf816\",\n    \"externalId\": 1234,\n    \"sourceId\": \"sfc-1234\",\n    \"custom\": {\n        \"field\": \"custom field\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/campaigns",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"campaigns"
+							]
+						},
+						"description": "To create a campaign it's required define a name and a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Campaign",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Campaign name 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/campaigns/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"campaigns",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To update a campaign it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the campaign externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/campaigns/extid-{{externalId}}\nor\nhttps://api.planhat.com/campaigns/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaign by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/campaigns/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"campaigns",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5ffcce42ad67267f66741147"
+								}
+							]
+						},
+						"description": "To get a specific campaign it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible to get a campaign using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/campaigns/extid-{{externalId}}\nor\nhttps://api.planhat.com/campaigns/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Campaigns List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/campaigns?limit=100&offset=0&sort=&select=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"campaigns"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": "",
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple campaigns there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Campaign",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/campaigns/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"campaigns",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To delete a campaign it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Campaigns",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Campaign name\",\n        \"campaignPurpose\": \"Campaign purpose\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"externalId\": 1234,\n        \"sourceId\": \"sfc-1234\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    },\n    {\n        \"name\": \"Campaign name 2\",\n        \"campaignPurpose\": \"Campaign purpose 2\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"externalId\": 1235,\n        \"sourceId\": \"sfc-1235\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/campaigns",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"campaigns"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple campaigns with the same payload. There is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Churn",
+			"item": [
+				{
+					"name": "Create Churn",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"churnDate\": \"2021-07-28\",\n    \"reasons\": [\n        \"Change in leadership\",\n        \"Budget cuts\"\n    ],\n    \"value\": 2000,\n    \"currency\": \"USD\",\n    \"comment\": \"This account could return in the future\",\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/churn",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"churn"
+							]
+						},
+						"description": "To create a churn it's suggested to specify a companyId and a value.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Churn",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": 25000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/churn/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"churn",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6101d1f072c0e0884d5e8f57"
+								}
+							]
+						},
+						"description": "To update a churn it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the churn sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/churn/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Churn by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/churn/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"churn",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "58cc4b769649cb337f9d59a9"
+								}
+							]
+						},
+						"description": "To get a specific churn it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Churn List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/churn",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"churn"
+							],
+							"query": [
+								{
+									"key": "downgrades",
+									"value": null,
+									"description": "Filter by downgrades. Options: 'only' or 'excluded'.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": null,
+									"description": "Filter by time range (start date). Format: YYYY-MM-DD",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": null,
+									"description": "Filter by time range (end date). Format: YYYY-MM-DD",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple churn records there are some options that can be used via query params"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Churn",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/churn/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"churn",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6101d1f072c0e0884d5e8f57"
+								}
+							]
+						},
+						"description": "To delete a churn it's required to pass _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Churn",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"churnDate\": \"2021-07-29\",\n        \"reasons\": [\n            \"Change in leadership\",\n            \"Budget cuts\"\n        ],\n        \"value\": 2500,\n        \"currency\": \"USD\",\n        \"comment\": \"This account could return in the future\",\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\"\n    },\n    {\n        \"_id\": \"60e5d4dabe45b22e8e97940c\",\n        \"comment\": \"New communication with the CEO, the could return next year\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/churn",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"churn"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple projects with the same payload. There is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"prospect\",\n    \"name\": \"Tenet\",\n    \"externalId\": \"Planhat-81ock9l81wl\",\n    \"phase\": \"Renewal\",\n    \"domains\": [\n        \"abcdinc.com\",\n        \"777.com\"\n    ],\n    \"h\": 10,\n    \"csmScore\": 4,\n    \"mr\": 0,\n    \"nrr30\": 0,\n    \"custom\": {\n        \"CompanyTeamMembers\": [\n            \"564b063a508f068051ee82a5\",\n            \"56d5dd4e8422dc141913d0ab\"\n        ],\n        \"CompanyTeamMember\": \"564b063a508f068051ee82a5\",\n        \"CompanyMultiList\": [\n            \"Test2\",\n            \"Test3\"\n        ],\n        \"CompanyList\": \"Test2\",\n        \"CompanyDate\": \"2020-05-08T21:00:00.000Z\",\n        \"CompanyDay\": 18395,\n        \"CompanyBoolean\": true,\n        \"CompanyNumber\": 33,\n        \"CompanyRating\": 4,\n        \"CompanyRichText\": \"sfsdfsdfsaSADSSADas\",\n        \"CompanyText\": \"Test\"\n    },\n    \"mrrTotal\": 0,\n    \"nrrTotal\": 5555,\n    \"mrTotal\": 5555,\n    \"country\": \"Latvia\",\n    \"description\": \"Up and coming tech company\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/companies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"companies"
+							]
+						},
+						"description": "To create a company it's required define a name."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Company new name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/companies/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"companies",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60ff42f8d627295c259999af"
+								}
+							]
+						},
+						"description": "To update a company it's required to pass the company _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the company externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/companies/extid-{{externalId}}\nor\nhttps://api.planhat.com/companies/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/companies/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"companies",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61006bc89a3e0b702ed8ea49"
+								}
+							]
+						},
+						"description": "To get a specific company it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a company using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/companies/extid-{{externalId}}\nor\nhttps://api.planhat.com/companies/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/companies?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"companies"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 5000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies Lean List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/leancompanies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"leancompanies"
+							],
+							"query": [
+								{
+									"key": "externalId",
+									"value": null,
+									"description": "Filter by Compay externalId.",
+									"disabled": true
+								},
+								{
+									"key": "sourceId",
+									"value": null,
+									"description": "Filter by Company sourceId.",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": null,
+									"description": "Filter by Company status, e.g. \"lost\", \"prospect\".",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When you need a lightweight list of all companies in Planhat to match against your own ids etc."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/companies/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"companies",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60ff42f8d627295c259999af"
+								}
+							]
+						},
+						"description": "To delete a company it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Companies",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Skynet\",\n        \"externalId\": 1234,\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    },\n    {\n        \"name\": \"Tenet\",\n        \"sourceId\": \"sfc-1235\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/companies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"companies"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple companies with the same payload. There is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Conversation",
+			"item": [
+				{
+					"name": "Create Conversation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"users\": [\n        {\n            \"id\": \"58e231b14246fc73139f29e8\"\n        }\n    ],\n    \"date\": \"2021-07-29T15:29:34.330Z\",\n    \"type\": \"note\",\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n    \"subject\": \"New conversation\",\n    \"description\": \"Little call with the client.\",\n    \"endusers\": [\n        {\n            \"id\": \"610091916d643a7c418aef42\"\n        }\n    ],\n    \"activityTags\": [],\n    \"useSubject\": true,\n    \"ownerId\": \"58e231b14246fc73139f29e8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/conversations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations"
+							]
+						},
+						"description": "To create a conversation, it is required to define a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Conversation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": \"Chat with the client\",\n    \"description\": \"Slack chat with the client.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/conversations/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6102e3b08084189dcbf0e3f0"
+								}
+							]
+						},
+						"description": "To update a conversation it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the conversation externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/conversations/extid-{{externalId}}\nor\nhttps://api.planhat.com/conversations/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Conversation by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/conversations/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "58e57392c9437d10624593fd"
+								}
+							]
+						},
+						"description": "To get a specific conversation it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a conversation using its externalId adding a prefix and passing this keyable as identifiers.\n\nExample:\nhttps://api.planhat.com/conversations/extid-{{externalId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Conversations List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/conversations?limit=30&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "30",
+									"description": "Limit the list length. Default as 30, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple conversations there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Conversation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/conversations/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6102e3b08084189dcbf0e3f0"
+								}
+							]
+						},
+						"description": "To delete a conversation it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Conversations",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"users\": [\n            {\n                \"id\": \"58e231b14246fc73139f29e8\"\n            }\n        ],\n        \"date\": \"2021-07-29T15:29:34.330Z\",\n        \"type\": \"note\",\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n        \"subject\": \"New conversation\",\n        \"description\": \"Little call with the client.\",\n        \"endusers\": [\n            {\n                \"id\": \"610091916d643a7c418aef42\"\n            }\n        ],\n        \"activityTags\": [],\n        \"useSubject\": true,\n        \"ownerId\": \"58e231b14246fc73139f29e8\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/conversations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple projects with the same payload. There is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Custom Field",
+			"item": [
+				{
+					"name": "Create Custom Field",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parent\": \"company\",\n    \"type\": \"number\",\n    \"isFeatured\": true,\n    \"isHidden\": false,\n    \"name\": \"Number field\",\n    \"isFormula\": false,\n    \"isLocked\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/customfields",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"customfields"
+							]
+						},
+						"description": "To create a custom field it's required to define a name, parent and a type."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Custom Field",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isFeatured\": false,\n    \"isHidden\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/customfields/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"customfields",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61043ced0b92efb8a6339cd1"
+								}
+							]
+						},
+						"description": "To update a custom field it's required to pass _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Custom Field by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/customfields/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"customfields",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5c94de4752e54d5ce538ae18"
+								}
+							]
+						},
+						"description": "To get a specific custom field it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Custom Fields List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/customfields?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"customfields"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple custom fields there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Custom Field",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/customfields/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"customfields",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61043ced0b92efb8a6339cd1"
+								}
+							]
+						},
+						"description": "To delete a custom field it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enduser",
+			"item": [
+				{
+					"name": "Create Enduser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"featured\": true,\n    \"email\": \"jane@test.com\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/endusers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"endusers"
+							]
+						},
+						"description": "To create an enduser it's required define in the payload a companyId and an email, externalId or sourceId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Enduser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Lara\",\n    \"lastName\": \"Croft\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/endusers/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"endusers",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "610091916d643a7c418aef42"
+								}
+							]
+						},
+						"description": "To update an enduser it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the enduser externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/endusers/extid-{{externalId}}\nor\nhttps://api.planhat.com/endusers/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Enduser by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/endusers/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"endusers",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "56bccdf554d64d837d01bf42"
+								}
+							]
+						},
+						"description": "To get a specific enduser it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get an enduser using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/endusers/extid-{{externalId}}\nor\nhttps://api.planhat.com/endusers/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Endusers List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/endusers?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"endusers"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "archived",
+									"value": null,
+									"description": "Passing true the endpoint will include archived endusers.",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"description": "Passing a valid email the endpoint will return a list of endusers with that email.",
+									"disabled": true
+								},
+								{
+									"key": "euId",
+									"value": null,
+									"description": "Passing a valid Planhat ID (_id) the endpoint will return the enduser with that id.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple endusers there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Enduser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/endusers/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"endusers",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "610091916d643a7c418aef42"
+								}
+							]
+						},
+						"description": "To delete an enduser it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Endusers",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"email\": \"jane@test.com\",\n        \"lastName\": \"Smith\"\n    },\n    {\n        \"featured\": true,\n        \"email\": \"will@test.com\",\n        \"firstName\": \"Will\",\n        \"lastName\": \"Smith\",\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/endusers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"endusers"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple endusers with the same payload.\n\nTo update an enduser it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, externalId, email.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Create Invoice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dueDate\": 19201,\n    \"invoiceDate\": 18836,\n    \"currency\": \"USD\",\n    \"amountTotal\": 10000,\n    \"lineItems\": [\n        {\n            \"relatedId\": \"sale-61016c80675c1b871faf2d4f\",\n            \"saleId\": \"61016c80675c1b871faf2d4f\",\n            \"product\": \"Advanced Onboarding\",\n            \"amount\": 10000,\n            \"dateFrom\": 18836\n        }\n    ],\n    \"cId\": \"61006bc89a3e0b702ed8ea49\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/invoices",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"invoices"
+							]
+						},
+						"description": "To create an invoice the only real value that is required is the cId but it doesn't make much sense to have an invoice just with a cId, that is why we suggest specify a invoiceDate and currency.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"cId\": \"extid-[company externalId]\" or \"cId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Invoice",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paidDate\": 18840\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/invoices/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"invoices",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61017a0372c0e0884d5e827e"
+								}
+							]
+						},
+						"description": "To update a invoice it's required to pass the invoice _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the invoice extId (externalId) and/or sourceId adding a prefix and passing this keyable as identifier.\n\nExample:\nhttps://api.planhat.com/invoices/extid-{{extId}}\nor\nhttps://api.planhat.com/invoices/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoice by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/invoices/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"invoices",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5bec1521b63ce46d84dd7a7d"
+								}
+							]
+						},
+						"description": "To get a specific invoice it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a invoice using its extId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/invoices/extid-{{extId}}\nor\nhttps://api.planhat.com/invoices/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoices List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/invoices?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"invoices"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple invoices there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Invoice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/invoices/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"invoices",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61017a0372c0e0884d5e827e"
+								}
+							]
+						},
+						"description": "To delete an invoice it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Invoices",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"dueDate\": 19201,\n        \"invoiceDate\": 18834,\n        \"currency\": \"USD\",\n        \"amountTotal\": 10000,\n        \"lineItems\": [\n            {\n                \"relatedId\": \"sale-61016c80675c1b871faf2d4f\",\n                \"saleId\": \"61016c80675c1b871faf2d4f\",\n                \"product\": \"Advanced Onboarding\",\n                \"amount\": 10000,\n                \"dateFrom\": 18836\n            }\n        ],\n        \"cId\": \"61006bc89a3e0b702ed8ea49\"\n    },\n    {\n        \"dueDate\": 19210,\n        \"invoiceDate\": 18832,\n        \"currency\": \"USD\",\n        \"amountTotal\": 15000,\n        \"lineItems\": [\n            {\n                \"relatedId\": \"sale-61016c80675c1b871faf2d4f\",\n                \"saleId\": \"61016c80675c1b871faf2d4f\",\n                \"product\": \"Advanced Onboarding\",\n                \"amount\": 10000,\n                \"dateFrom\": 18836\n            }\n        ],\n        \"cId\": \"61006bc89a3e0b702ed8ea49\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/invoices",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"invoices"
+							]
+						},
+						"description": "To create an invoice it's required define a cId, currency and invoiceDate.\nTo update an invoice it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, extId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Issue",
+			"item": [
+				{
+					"name": "Create Issue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyIds\": [\n        \"61006bc89a3e0b702ed8ea49\"\n    ],\n    \"enduserIds\": [\n        \"610091916d643a7c418aef42\"\n    ],\n    \"title\": \"Problem with integration\",\n    \"description\": \"There is a problem with our integration settings that is affecting some users.\",\n    \"status\": \"Open\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/issues",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"issues"
+							]
+						},
+						"description": "To create an issue, it is required to define a title and is suggested to specify a companyIds.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyIds\": [\"extid-[company externalId]\"] or \"companyIds\": [\"srcid-[company sourceId]\"]."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Issue",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"In Progress\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/issues/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"issues",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "610411d5b046afb2109df12c"
+								}
+							]
+						},
+						"description": "To update an issue, it's required to pass the issue _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the issue sourceId adding a prefix and passing this keyable as identifier.\n\nExample:\nhttps://api.planhat.com/issues/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Issue by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/issues/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"issues",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60f7df113432fd36abf8b899"
+								}
+							]
+						},
+						"description": "To get a specific issue, it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get an issue using its sourceId adding a prefix and passing this keyable as identifier.\n\nExample:\nhttps://api.planhat.com/issues/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Issues List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/issues?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"issues"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple issues there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Issue",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/issues/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"issues",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "610411d5b046afb2109df12c"
+								}
+							]
+						},
+						"description": "To delete an issue, it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Issues",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"_id\": \"60f7df113432fd36abf8b899\",\n        \"status\": \"Done\"\n    },\n    {\n        \"companyIds\": [\n            \"61006bc89a3e0b702ed8ea49\"\n        ],\n        \"enduserIds\": [\n            \"610091916d643a7c418aef42\"\n        ],\n        \"title\": \"Problem with integration\",\n        \"description\": \"There is a problem with our integration settings that is affecting some users.\",\n        \"status\": \"Open\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/issues",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"issues"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple issues with the same payload.\n\nTo update an issue, it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "License",
+			"item": [
+				{
+					"name": "Create License",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"autoRenews\": false,\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n    \"fixedPeriod\": true,\n    \"fromDate\": \"2021-07-27T00:00:00.000Z\",\n    \"toDate\": \"2022-07-27T00:00:00.000Z\",\n    \"mrr\": 83.33333333333333,\n    \"product\": \"Large License\",\n    \"_currency\": \"USD\",\n    \"renewalPeriod\": 12,\n    \"renewalStatus\": \"ongoing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/licenses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"licenses"
+							]
+						},
+						"description": "To create a license, it is suggested to specify a companyId, value, _currency and fromDate.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update License",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mrr\": 100000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/licenses/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"licenses",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61006fbf1df7fa77a20d9d0a"
+								}
+							]
+						},
+						"description": "To update a license it's required to pass the license _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the license externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/licenses/extid-{{externalId}}\nor\nhttps://api.planhat.com/licenses/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get License by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/licenses/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"licenses",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "56bccdf554d64d837d01beb2"
+								}
+							]
+						},
+						"description": "To get a specific license it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a license using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/licenses/extid-{{externalId}}\nor\nhttps://api.planhat.com/licenses/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Licenses List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/licenses?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"licenses"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple licenses there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete License",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/licenses/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"licenses",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61006fbf1df7fa77a20d9d0a"
+								}
+							]
+						},
+						"description": "To delete a license it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Licenses",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"_id\": \"6100772b919fd37905810fc6\",\n        \"mrr\": 200000\n    },\n    {\n        \"autoRenews\": false,\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n        \"fixedPeriod\": true,\n        \"fromDate\": \"2021-07-28T00:00:00.000Z\",\n        \"toDate\": \"2022-07-28T00:00:00.000Z\",\n        \"invoiceCycleInterval\": 0,\n        \"mrr\": 100,\n        \"product\": \"Large License\",\n        \"_currency\": \"USD\",\n        \"renewalPeriod\": 12,\n        \"renewalStatus\": \"ongoing\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/licenses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"licenses"
+							]
+						},
+						"description": "To create a license it's required define a companyId, _currency and value.\nTo update a license it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, externalId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"users\": [\n        {\n            \"id\": \"5d66266e187f60020bc8036f\",\n            \"name\": \"Ivars\",\n            \"isOwner\": true\n        }\n    ],\n    \"date\": \"2021-08-22T16:15:50.772Z\",\n    \"type\": \"note\",\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n    \"subject\": \"Support with Tenet\",\n    \"description\": \"Support session with the client\",\n    \"activityTags\": [\n        \"5f514794dc005f275e9cc20c\"\n    ],\n    \"endusers\": [\n        {\n            \"id\": \"610091916d643a7c418aef42\",\n            \"name\": \"Jane Doe\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/conversations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations"
+							]
+						},
+						"description": "To create a note, it's required to define in the payload a companyId and type as 'note'.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Note",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": \"Possible upgrade\",\n    \"description\": \"The client is insterested in a subscription upgrade.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/conversations/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61081aede03cf31e13ea1e51"
+								}
+							]
+						},
+						"description": "To update a note, it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Note by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/conversations/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60fee824a4c764252c877c2b"
+								}
+							]
+						},
+						"description": "To get a specific note it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a note using its externalId adding a prefix and passing this keyable as identifiers.\n\nExample:\nhttps://api.planhat.com/conversations/extid-{{externalId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notes List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/conversations?limit=30&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "30",
+									"description": "Limit the list length. Default as 30, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple notes there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/conversations/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61081aede03cf31e13ea1e51"
+								}
+							]
+						},
+						"description": "To delete a note, it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Notes",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"users\": [\n            {\n                \"id\": \"5d66266e187f60020bc8036f\",\n                \"name\": \"Ivars\",\n                \"isOwner\": true\n            }\n        ],\n        \"date\": \"2021-08-22T16:15:50.772Z\",\n        \"type\": \"note\",\n        \"companyId\": \"{{companyId}}\",\n        \"subject\": \"Support with Tenet\",\n        \"description\": \"Support session with the client\",\n        \"activityTags\": [\n            \"5f514794dc005f275e9cc20c\"\n        ],\n        \"endusers\": [\n            {\n                \"id\": \"610091916d643a7c418aef42\",\n                \"name\": \"Jane Doe\"\n            }\n        ]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/conversations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"conversations"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple notes with the same payload.\n\nTo update a note it is required to specify the _id in the payload.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NPS",
+			"item": [
+				{
+					"name": "Create NPS",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jane@test.com\",\n    \"score\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/nps",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"nps"
+							]
+						},
+						"description": "To create an NPS it's required define an enduser email and a score."
+					},
+					"response": []
+				},
+				{
+					"name": "Update NPS",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"score\": 9,\n    \"comment\": \"Good product\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/nps/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"nps",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61030b0e8084189dcbf0e6da"
+								}
+							]
+						},
+						"description": "To update an NPS it's required to pass the NPS _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the NPS sourceId adding a prefix.\n\nExample:\nhttps://api.planhat.com/nps/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get NPS by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/nps/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"nps",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5a2692f13a3f1f4202cf281f"
+								}
+							]
+						},
+						"description": "To get a specific NPS it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a NPS using its sourceId adding a prefix.\n\nExample:\nhttps://api.planhat.com/nps/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get NPS List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/nps?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"nps"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 10000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "npsExpiryDay",
+									"value": null,
+									"description": "Integer representing the number of days before the curret date where the NPS was answered. Default is 360.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple NPS there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete NPS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/nps/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"nps",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61030b0e8084189dcbf0e6da"
+								}
+							]
+						},
+						"description": "To delete an NPS it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert NPS",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"email\": \"jane@test.com\",\n        \"score\": 7\n    },\n    {\n        \"email\": \"pepe@test.com\",\n        \"score\": 10\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/nps",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"nps"
+							]
+						},
+						"description": "To create a NPS it's required define an enduser email and a score.\nTo update a NPS it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Objective",
+			"item": [
+				{
+					"name": "Create Objective",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Objective name\",\n    \"health\": 5,\n    \"companyId\": \"60df26bfa259250cba9cf816\",\n    \"externalId\": 1234,\n    \"sourceId\": \"sfc-1234\",\n    \"custom\": {\n        \"field\": \"custom field\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/objectives",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"objectives"
+							]
+						},
+						"description": "To create an objective it's required define a name and a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Objective",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Objective name 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/objectives/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"objectives",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To update an objective it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the objective externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/objectives/extid-{{externalId}}\nor\nhttps://api.planhat.com/objectives/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Objective by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/objectives/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"objectives",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5ffcce42ad67267f66741147"
+								}
+							]
+						},
+						"description": "To get a specific objective it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible to get an objective using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/objectives/extid-{{externalId}}\nor\nhttps://api.planhat.com/objectives/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Objectives List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/objectives?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"objectives"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple objectives there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Objective",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/objectives/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"objectives",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To delete an objective it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Objectives",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Objective name\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"health\": 4,\n        \"externalId\": 1234,\n        \"sourceId\": \"sfc-1234\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    },\n    {\n        \"name\": \"Objective name 2\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"health\": 5,\n        \"externalId\": 1235,\n        \"sourceId\": \"sfc-1235\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/objectives",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"objectives"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple objectives with the same payload.\n\nTo update an objective it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, externalId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Opportunity",
+			"item": [
+				{
+					"name": "Create Opportunity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"salesStage\": \"Pitched\",\n    \"dealDate\": \"2021-08-03T00:00:00.000Z\",\n    \"ownerId\": \"60ccb1c5965cc9e0f3848075\",\n    \"_currency\": \"USD\",\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n    \"title\": \"New opportunity\",\n    \"recurringValue\": 3000,\n    \"mrr\": 250,\n    \"nrr\": 500,\n    \"status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/opportunities",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"opportunities"
+							]
+						},
+						"description": "To create an opportunity it's required define a companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Opportunity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"won\",\n    \"salesStage\": \"Closed won\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/opportunities/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"opportunities",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6101e99b72c0e0884d5e9139"
+								}
+							]
+						},
+						"description": "To update an opportunity it's required to pass the opportunity _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the opportunity externalId adding a prefix and passing this keyable as identifier.\n\nExample:\nhttps://api.planhat.com/opportunities/extid-{{externalId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Opportunity by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/opportunities/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"opportunities",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "58499569e2914f5171fa7f9d"
+								}
+							]
+						},
+						"description": "To get a specific opportunity it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get an opportunity using its externalId and/or sourceId adding a prefix and passing one of these keyable as identifier.\n\nExample:\nhttps://api.planhat.com/opportunities/extid-{{externalId}}\nor\nhttps://api.planhat.com/opportunities/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Opportunity List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/opportunities?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"opportunities"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple opportunities there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Opportunity",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/opportunities/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"opportunities",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6101e99b72c0e0884d5e9139"
+								}
+							]
+						},
+						"description": "To delete an opportunity it's required to pass the opportunity _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Opportunities",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"salesStage\": \"Pitched\",\n        \"dealDate\": \"2021-08-10T00:00:00.000Z\",\n        \"ownerId\": \"60ccb1c5965cc9e0f3848075\",\n        \"_currency\": \"USD\",\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n        \"title\": \"New license opportunity\",\n        \"recurringValue\": 6000,\n        \"status\": \"active\"\n    },\n    {\n        \"salesStage\": \"Pitched\",\n        \"dealDate\": \"2021-08-03T00:00:00.000Z\",\n        \"ownerId\": \"60ccb1c5965cc9e0f3848075\",\n        \"_currency\": \"USD\",\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n        \"title\": \"New sale opportunity\",\n        \"recurringValue\": 1000,\n        \"status\": \"active\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/opportunities",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"opportunities"
+							]
+						},
+						"description": "To create a opportunity it's required define a valid companyId.\nTo update a opportunity it is required to specify in the payload one of the following keyables, listed in order of priority: _id, externalId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n    \"startDate\": \"2021-07-26T04:00:00.000Z\",\n    \"endDate\": \"2021-07-31T04:00:00.000Z\",\n    \"currency\": \"USD\",\n    \"mrr\": 1000,\n    \"name\": \"New project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"projects"
+							]
+						},
+						"description": "To create a project it's required define a name and a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Big project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/projects/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"projects",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6101a50072c0e0884d5e8db1"
+								}
+							]
+						},
+						"description": "To update a project it's required to pass the project _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the project externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/projects/extid-{{externalId}}\nor\nhttps://api.planhat.com/projects/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/projects/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"projects",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "609a88660b73992504816060"
+								}
+							]
+						},
+						"description": "To get a specific project it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a project using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/projects/extid-{{externalId}}\nor\nhttps://api.planhat.com/projects/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Projects List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/projects?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"projects"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple projects there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/projects/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"projects",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6101a50072c0e0884d5e8db1"
+								}
+							]
+						},
+						"description": "To delete a project it's required to pass the project _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Projects",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"_id\": \"6101a50072c0e0884d5e8db1\",\n        \"mrr\": 10000\n    },\n    {\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n        \"startDate\": \"2021-07-25T04:00:00.000Z\",\n        \"endDate\": \"2021-07-30T04:00:00.000Z\",\n        \"currency\": \"USD\",\n        \"mrr\": 5000,\n        \"name\": \"Improvements\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/projects",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"projects"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple projects with the same payload.\n\nTo update a project it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, externalId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "Create Sale",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": \"Advanced Onboarding\",\n    \"_currency\": \"USD\",\n    \"salesDate\": \"2021-07-28T00:00:00.000Z\",\n    \"value\": 10000,\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/sales",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"sales"
+							]
+						},
+						"description": "To create a sale it is suggested to specify a companyId, value and _currency.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sale",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": 15000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/sales/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"sales",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61016c80675c1b871faf2d4f"
+								}
+							]
+						},
+						"description": "To update a sale it's required to pass the sale _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the sale externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/sales/extid-{{externalId}}\nor\nhttps://api.planhat.com/sales/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sale by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/sales/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"sales",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61016c80675c1b871faf2d4f"
+								}
+							]
+						},
+						"description": "To get a specific sale it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a sale using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/sales/extid-{{externalId}}\nor\nhttps://api.planhat.com/sales/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sales List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/sales?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"sales"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple sales there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sale",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/sales/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"sales",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61016c80675c1b871faf2d4f"
+								}
+							]
+						},
+						"description": "To delete a sale it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Sales",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"product\": \"Advanced Onboarding\",\n        \"_currency\": \"USD\",\n        \"salesDate\": \"2021-07-28T00:00:00.000Z\",\n        \"value\": 5000,\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\"\n    },\n    {\n        \"_id\": \"61016c80675c1b871faf2d4f\",\n        \"value\": 200000\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/sales",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"sales"
+							]
+						},
+						"description": "To create a sale it's required define a companyId, _currency and value.\nTo update a sale it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, externalId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerId\": \"58e231b14246fc73139f29e8\",\n    \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n    \"mainType\": \"task\",\n    \"noSpecificTime\": true,\n    \"startTime\": \"2021-07-29T00:00:00.00Z\",\n    \"repeat\": \"daily\",\n    \"action\": \"New task\",\n    \"description\": \"Call the client.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/tasks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "To create a task it is required a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"Daily contact\",\n    \"sourceId\": \"sfdc-1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/tasks/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tasks",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6102c9748084189dcbf0df60"
+								}
+							]
+						},
+						"description": "To update a task it's required to pass the task _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the task sourceId adding a prefix and passing this keyable as identifier.\n\nExample:\nhttps://api.planhat.com/tasks/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/tasks/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tasks",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5db866ceab7aac67dc3637c8"
+								}
+							]
+						},
+						"description": "To get a specific task it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get a task using its sourceId adding a prefix and passing this keyable as identifier.\n\nExample:\nhttps://api.planhat.com/tasks/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/tasks?limit=500&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "500",
+									"description": "Limit the list length. Default as 500, max. 10000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "enduserIds",
+									"value": null,
+									"description": "Filter using endusers id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "isArchived",
+									"value": null,
+									"description": "Filter archived or not archived status. Default as false.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple tasks there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/tasks/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tasks",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6102c9748084189dcbf0df60"
+								}
+							]
+						},
+						"description": "To delete a task it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Tasks",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"mainType\": \"task\",\n        \"startTime\": \"2022-07-05T14:02:16.181Z\",\n        \"ownerId\": \"61f91285d40d7d112020c7b6\",\n        \"ownerName\": \"Ernesto\",\n        \"action\": \"First Onboard Call\",\n        \"companyId\": \"5fd76c4daf9f4601dd313b05\",\n        \"checklist\": [\n            {\n                \"title\": \"Prepare Material\"\n            },\n            {\n                \"title\": \"Present\"\n            }\n        ]\n    },\n    {\n        \"mainType\": \"task\",\n        \"startTime\": \"2022-07-05T14:02:16.181Z\",\n        \"ownerId\": \"61f91285d40d7d112020c7b6\",\n        \"ownerName\": \"Ernesto\",\n        \"action\": \"Send Invoice\",\n        \"checklist\": [],\n        \"companyId\": \"60c10846108183032f05bd67\"\n    },\n    {\n        \"mainType\": \"task\",\n        \"startTime\": \"2022-07-05T14:02:16.181Z\",\n        \"ownerId\": \"61f91285d40d7d112020c7b6\",\n        \"ownerName\": \"Ernesto\",\n        \"companyId\": \"60c1075808f652259315e270\",\n        \"action\": \"Creating Tasks in bulk\",\n        \"description\": \"Description\",\n        \"checklist\": [\n            {\n                \"title\": \"Step 1\"\n            },\n            {\n                \"title\": \"Step 2\"\n            }\n        ]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/tasks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "To update a task it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Bulk Upsert Tickets",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"sourceId\": \"119\",\n        \"source\": \"freshdesk\",\n        \"status\": \"open\",\n        \"history\": [\n            {\n                \"status\": \"open\",\n                \"time\": \"2019-12-15T09:09:08.000Z\"\n            }\n        ],\n        \"title\": \"Test Ticket\",\n        \"description\": \"Let have a chat?\",\n        \"url\": \"http://urltoyourticket.com/119\",\n        \"type\": \"ticket\",\n        \"email\": \"ojpsoi57pzn@gmail.com\",\n        \"name\": \"first-ojpsoi57pzn\",\n        \"companyId\": \"61006bc89a3e0b702ed8ea49\",\n        \"agentEmail\": null,\n        \"domains\": [\n            \"planhat.com\",\n            \"google.com\"\n        ]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/tickets",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tickets"
+							]
+						},
+						"description": "To create a ticket it's required define a sourceId, email and domains.\nTo update a ticket it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ticket List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/tickets?limit=500&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tickets"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "500",
+									"description": "Limit the list length. Default as 500, max. 10000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id. Multiple ids can be used separating them by commas.",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": null,
+									"description": "Filter by status of tickets.",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"description": "Filter by email.",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": null,
+									"description": "Filter ticket searching for matching strings in the snippets.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching tickets there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ticket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/tickets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"tickets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "To delete a ticket it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Time Entry",
+			"item": [
+				{
+					"name": "Create Time Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hours\": 5,\n    \"date\": \"2025-01-30T14:51:01.691Z\",\n    \"description\": \"Worked on the integration issue\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timeentries",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries"
+							]
+						},
+						"description": "To create a time entry the required fields are date and hours. Keep in mind that the hours must be positive, can be a decimal number, and between 0.1 and 24."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Time Entry",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hours\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timeentries/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "610411d5b046afb2109df12c"
+								}
+							]
+						},
+						"description": "To update a time entry it's required to pass the time entry _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Time Entry by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/timeentries/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "67d04352557181002fd16424"
+								}
+							]
+						},
+						"description": "To get a specific time entry it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Time Entries List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/timeentries?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple time entries there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Time Entry",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/timeentries/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "67d04352557181002fd16424"
+								}
+							]
+						},
+						"description": "To delete an time entry it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Time Entries",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"_id\": \"677427729c28f8015843e87d\",\n        \"hours\": 6\n    },\n    {\n        \"_id\": \"677427729c28f8015843e87e\",\n        \"description\": \"There is a problem with our integration settings that is affecting some users.\"\n    },\n    {\n        \"hours\": 10,\n        \"date\": \"2025-01-30T14:51:01.691Z\",\n        \"description\": \"Creating time entry using bulk operations\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timeentries",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries"
+							]
+						},
+						"description": "To create a time entry it's required define hours and date.\nTo update a time entry it is required to specify _id in the payload.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Time Entry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\n        \"67d07487557181002fd16d50\",\n        \"677427729c28f8015843e87d\",\n        \"677427729c28f8015843e87e\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timeentries/duplicate",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timeentries",
+								"duplicate"
+							]
+						},
+						"description": "To duplicate a time entries it's required to pass the ids array in the payload. Bulk upsert will be performed on the time entries with the specified ids if ids exist."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Timesheet",
+			"item": [
+				{
+					"name": "Create Timesheet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"timeEntries\": [\n        {\n            \"_id\": \"67d07487557181002fd16d50\"\n        },\n        {\n            \"_id\": \"67d07694557181002fd16e1e\"\n        }\n    ],\n    \"assignedId\": \"66eb28a6ef8857a5097fbce3\",\n    \"assignedModel\": \"User\",\n    \"dateFrom\": 20156,\n    \"dateTo\": 20163\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timesheets",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timesheets"
+							]
+						},
+						"description": "To create a timesheet there are no required fields. The timesheet will be created with the status \"submitted\", but the date range should be provided in the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Timesheet",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"approved\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timesheets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "67d078fe557181002fd16f3e"
+								}
+							]
+						},
+						"description": "To update a timesheet it's required to pass the time entry _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Timesheet by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/timesheets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "67aca36fa8ba08053dee2ebf"
+								}
+							]
+						},
+						"description": "To get a specific timesheet it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Timesheet List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/timesheets?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timesheets"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple timesheets there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Timesheet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/timesheets/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timesheets",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "679a8fdd0a84a200cd4654aa"
+								}
+							]
+						},
+						"description": "To delete a timesheet it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Timesheets",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"assignedId\": \"66eb28a6ef8857a5097fbce3\",\n        \"assignedModel\": \"User\"\n    },\n    {\n        \"_id\": \"67aca36fa8ba08053dee2ebf\",\n        \"status\": \"returned\"\n    },\n    {\n        \"_id\": \"67bf484af303d806b63d9a49\",\n        \"status\": \"submitted\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/timesheets",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"timesheets"
+							]
+						},
+						"description": "To create a timesheet, there's no required field.\nTo update a timesheet it is required to specify _id in the payload.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"firstName\": \"Bob\",\n    \"lastName\": \"Marley\",\n    \"nickName\": \"Bob\",\n    \"roles\": [\n        \"57e2b92ff795575a5b8c4659\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/users",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "To create a user it's required define in the payload a nickName, email, firstName and lastName."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nickName\": \"Bob Marley\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/users/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"users",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61031e2ad414d49dcdb61b22"
+								}
+							]
+						},
+						"description": "To update a user it's required to pass the user _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the user externalId adding a prefix.\n\nExample:\nhttps://api.planhat.com/users/extid-{{externalId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/users/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"users",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "564b063a508f068051ee82a5"
+								}
+							]
+						},
+						"description": "To get a specific user it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible get an user using its externalId adding a prefix.\n\nExample:\nhttps://api.planhat.com/users/extid-{{externalId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/users?limit=10000&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10000",
+									"description": "Limit the list length. Default as 10000, max. 10000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple users there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/users/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"users",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "61031e2ad414d49dcdb61b22"
+								}
+							]
+						},
+						"description": "To delete a user it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Users",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"email\": \"rob@test.com\",\n        \"firstName\": \"Robbert\",\n        \"lastName\": \"Rob\",\n        \"nickName\": \"Tyler\",\n        \"roles\": [\n            \"57e2b92ff795575a5b8c4659\"\n        ]\n    },\n    {\n        \"email\": \"liz@test.com\",\n        \"firstName\": \"Liz\",\n        \"lastName\": \"Elizabeth\",\n        \"nickName\": \"Gates\",\n        \"roles\": [\n            \"5d35c292344cb854c0a5af28\"\n        ]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/users",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "To create an user it's required define a nickName, email, firstName and lastName.\nTo update an user it is required to specify in the payload one of the following keyables, listed in order of priority: _id, externalId, email.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workspace",
+			"item": [
+				{
+					"name": "Create Workspace",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Workspace name\",\n    \"companyId\": \"60df26bfa259250cba9cf816\",\n    \"ownerId\": \"60df26bfa259250cba8cf310\",\n    \"externalId\": 1234,\n    \"sourceId\": \"sfc-1234\",\n    \"custom\": {\n        \"field\": \"custom field\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/workspaces",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"workspaces"
+							]
+						},
+						"description": "To create a workspace it's required define a name and a valid companyId.\n\nYou can instead reference the company externalId or sourceId using the following command structure: \"companyId\": \"extid-[company externalId]\" or \"companyId\": \"srcid-[company sourceId]\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Workspace",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Workspace name 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/workspaces/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"workspaces",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To update a workspace it's required to pass the _id in the request URL as a parameter.\n\nAlternately it’s possible to update using the workspace externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/workspaces/extid-{{externalId}}\nor\nhttps://api.planhat.com/workspaces/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Workspace by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/workspaces/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"workspaces",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "5ffcce42ad67267f66741147"
+								}
+							]
+						},
+						"description": "To get a specific workspace it's required to pass the _id in the request URL as a parameter.\n\nAlternately it's possible to get a workspace using its externalId and/or sourceId adding a prefix and passing one of these keyables as identifiers.\n\nExample:\nhttps://api.planhat.com/workspaces/extid-{{externalId}}\nor\nhttps://api.planhat.com/workspaces/srcid-{{sourceId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Workspaces List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/workspaces?limit=100&offset=0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"workspaces"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "Limit the list length. Default as 100, max. 2000."
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Start the list on a specific integer index."
+								},
+								{
+									"key": "companyId",
+									"value": null,
+									"description": "Filter using company id.",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "Sort based on a specific property. Prefix the property \"-\" to change the sort order.",
+									"disabled": true
+								},
+								{
+									"key": "select",
+									"value": null,
+									"description": "Select specific properties. Multiple properties can be specified separating them by commas.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "When fetching multiple workspaces there are some options that can be used via query params."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Workspace",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.planhat.com/workspaces/:_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"workspaces",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "60faeda853b8f717ebe36146"
+								}
+							]
+						},
+						"description": "To delete a workspace it's required to pass the _id in the request URL as a parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Upsert Workspaces",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Workspace name\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"ownerId\": \"60df26bfa259250cba8cf310\",\n        \"externalId\": 1234,\n        \"sourceId\": \"sfc-1234\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    },\n    {\n        \"name\": \"Workspace name 2\",\n        \"companyId\": \"60df26bfa259250cba9cf816\",\n        \"ownerId\": \"60df26bfa259250cba8cf310\",\n        \"externalId\": 1235,\n        \"sourceId\": \"sfc-1235\",\n        \"custom\": {\n            \"field\": \"custom field\"\n        }\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.planhat.com/workspaces",
+							"protocol": "https",
+							"host": [
+								"api",
+								"planhat",
+								"com"
+							],
+							"path": [
+								"workspaces"
+							]
+						},
+						"description": "Since this is a bulk upsert operation it's possible create and/or update multiple workspaces with the same payload.\n\nTo update a workspace it is required to specify in the payload one of the following keyables, listed in order of priority: _id, sourceId, externalId.\n\nThere is an upper limit of 5,000 items per request."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{planhatApiToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "_id",
+			"value": ""
+		},
+		{
+			"key": "planhatApiToken",
+			"value": "YOUR_API_TOKEN_HERE"
+		}
+	]
+}
